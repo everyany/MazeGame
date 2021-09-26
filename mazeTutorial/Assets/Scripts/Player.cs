@@ -16,9 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Text win;
 
-    [SerializeField]
-    private GameObject weapon;
-
     void Start()
     {
         win.enabled = false;
@@ -27,19 +24,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(0, speed * Time.deltaTime, 0);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
         }
