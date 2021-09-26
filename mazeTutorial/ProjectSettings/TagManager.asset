@@ -7,7 +7,6 @@ TagManager:
   - walls
   - diamond
   - princess
-  - attack
   layers:
   - Default
   - TransparentFX
