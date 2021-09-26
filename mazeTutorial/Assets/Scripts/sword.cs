@@ -14,11 +14,18 @@ public class sword : MonoBehaviour
 
     void Update()
     {
-        while (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             Debug.Log("pressed");
-            weapon.SetActive(true);
+            StartCoroutine(attack());
         }
+    }
+
+    IEnumerator attack()
+    {
+        Debug.Log("couroutine");
+        weapon.SetActive(true);
+        yield return new WaitForSeconds(.2f);
         weapon.SetActive(false);
     }
 }
