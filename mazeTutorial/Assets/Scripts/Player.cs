@@ -61,31 +61,26 @@ public class Player : MonoBehaviour
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, 0f);
         transform.Translate(0f, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
 
-        if(Input.GetAxis("Horizontal") < 0)
+        if (Input.GetAxis("Horizontal") < 0)
         {
-            weapon.transform.localPosition = new Vector3(-0.0999995f, -1.700001f, 0.0f);
-            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
-            characterScale.x = -1;
+            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -270.0f);
+            weapon.transform.localPosition = new Vector3(-0.8000007f, -0.01999986f, 0.0f);
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
-            weapon.transform.localPosition = new Vector3(-0.0999995f, -1.700001f, 0.0f);
-            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
-            characterScale.x = 1;
+            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
+            weapon.transform.localPosition = new Vector3(0.8000007f, -0.01999986f, 0.0f);
         }
         if (Input.GetAxis("Vertical") < 0)
         {
-            weapon.transform.localPosition = new Vector3(-4.3f, -5.4f, 0.0f);
-            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-            characterScale.y = 1;
+            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 360.0f);
+            weapon.transform.localPosition = new Vector3(-0.01f, -0.79f, 0.0f);
         }
         if (Input.GetAxis("Vertical") > 0)
         {
-            weapon.transform.localPosition = new Vector3(-4.3f, -5.4f, 0.0f);
-            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-            characterScale.y = -1;
+            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -360.0f);
+            weapon.transform.localPosition = new Vector3(-0.01f, 0.79f, 0.0f);
         }
-        transform.localScale = characterScale;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
