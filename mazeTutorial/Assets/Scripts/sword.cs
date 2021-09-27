@@ -6,6 +6,8 @@ public class sword : MonoBehaviour
 {
     [SerializeField]
     private GameObject weapon;
+    [SerializeField]
+    private GameObject player;
 
     void Start()
     {
@@ -14,7 +16,7 @@ public class sword : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.Z))
         {
             Debug.Log("pressed");
             StartCoroutine(attack());

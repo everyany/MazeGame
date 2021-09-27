@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
 
+    /*[SerializeField]
+    float smooth = 5.0f;
+    [SerializeField]
+    private float tiltAngle = 60.0f;*/
+
     void Start()
     {
         win.enabled = false;
@@ -27,6 +32,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       //I CAN USE THIS FOR THE MAGNET ROD!
+        /*float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
+        Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
+        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);*/
+
         if (Input.GetKey(KeyCode.LeftArrow) && weapon.activeSelf == false)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
