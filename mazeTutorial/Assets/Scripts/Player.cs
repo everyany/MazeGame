@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject weapon;
+    [SerializeField]
+    private GameObject spivot;
 
     /*[SerializeField]
     float smooth = 5.0f;
@@ -32,12 +34,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //I CAN USE THIS FOR THE MAGNET ROD!
+        //I CAN USE THIS FOR THE MAGNET ROD!
         /*float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
         Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);*/
 
-        if (Input.GetKey(KeyCode.LeftArrow) && weapon.activeSelf == false)
+        /*if (Input.GetKey(KeyCode.LeftArrow) && weapon.activeSelf == false)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
@@ -52,7 +54,38 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow) && weapon.activeSelf == false)
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
+        }*/
+
+        Vector3 characterScale = transform.localScale;
+
+        transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, 0f);
+        transform.Translate(0f, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
+
+        if(Input.GetAxis("Horizontal") < 0)
+        {
+            weapon.transform.localPosition = new Vector3(-0.0999995f, -1.700001f, 0.0f);
+            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+            characterScale.x = -1;
         }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            weapon.transform.localPosition = new Vector3(-0.0999995f, -1.700001f, 0.0f);
+            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+            characterScale.x = 1;
+        }
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            weapon.transform.localPosition = new Vector3(-4.3f, -5.4f, 0.0f);
+            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            characterScale.y = 1;
+        }
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            weapon.transform.localPosition = new Vector3(-4.3f, -5.4f, 0.0f);
+            spivot.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            characterScale.y = -1;
+        }
+        transform.localScale = characterScale;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
