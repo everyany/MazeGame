@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject spivot;
 
+    //private int layerMask 1 << 0;
+
     /*[SerializeField]
     float smooth = 5.0f;
     [SerializeField]
@@ -34,8 +36,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //I CAN USE THIS FOR THE MAGNET ROD!
-        /*float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
+       /* //I CAN USE THIS FOR THE MAGNET ROD!
+        float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
         Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);*/
 
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour
             transform.Translate(0, -speed * Time.deltaTime, 0);
         }*/
 
-        Vector3 characterScale = transform.localScale;
+        //Vector3 characterScale = transform.localScale;
 
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, 0f);
         transform.Translate(0f, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
