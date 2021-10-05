@@ -17,9 +17,9 @@ public class Player : MonoBehaviour
     private Text win;
 
     [SerializeField]
-    private GameObject weapon;
+    private GameObject frontOfPlayer;
     [SerializeField]
-    private GameObject spivot;
+    private GameObject sword;
 
     //private int layerMask 1 << 0;
 
@@ -36,24 +36,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /* //I CAN USE THIS FOR THE MAGNET ROD!
-        float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
-        Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
-        transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);*/
+        /* //I CAN USE THIS FOR THE MAGNET ROD!
+         float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
+         Quaternion target = Quaternion.Euler(0, 0, tiltAroundZ);
+         transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);*/
 
-        /*if (Input.GetKey(KeyCode.LeftArrow) && weapon.activeSelf == false)
+        /*if (Input.GetKey(KeyCode.LeftArrow) && frontOfPlayer.activeSelf == false)
         {
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.RightArrow) && frontOfPlayer.activeSelf == false)
         {
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.UpArrow) && frontOfPlayer.activeSelf == false)
         {
             transform.Translate(0, speed * Time.deltaTime, 0);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && weapon.activeSelf == false)
+        if (Input.GetKey(KeyCode.DownArrow) && frontOfPlayer.activeSelf == false)
         {
             transform.Translate(0, -speed * Time.deltaTime, 0);
         }*/
@@ -65,23 +65,23 @@ public class Player : MonoBehaviour
 
         if (Input.GetAxis("Horizontal") < 0)
         {
-            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -270.0f);
-            weapon.transform.localPosition = new Vector3(-0.8000007f, -0.01999986f, 0.0f);
+            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -270.0f);
+            frontOfPlayer.transform.localPosition = new Vector3(-0.8000007f, -0.01999986f, 0.0f);
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
-            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
-            weapon.transform.localPosition = new Vector3(0.8000007f, -0.01999986f, 0.0f);
+            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
+            frontOfPlayer.transform.localPosition = new Vector3(0.8000007f, -0.01999986f, 0.0f);
         }
         if (Input.GetAxis("Vertical") < 0)
         {
-            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 360.0f);
-            weapon.transform.localPosition = new Vector3(-0.01f, -0.79f, 0.0f);
+            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+            frontOfPlayer.transform.localPosition = new Vector3(-0.01f, -0.79f, 0.0f);
         }
         if (Input.GetAxis("Vertical") > 0)
         {
-            weapon.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -360.0f);
-            weapon.transform.localPosition = new Vector3(-0.01f, 0.79f, 0.0f);
+            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 360.0f);
+            frontOfPlayer.transform.localPosition = new Vector3(-0.01f, 0.79f, 0.0f);
         }
     }
 

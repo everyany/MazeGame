@@ -36,8 +36,9 @@ public class sword : MonoBehaviour
     {
         Debug.Log("couroutine");
         weapon.SetActive(true);
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.3f);
         weapon.SetActive(false);
+        yield return new WaitForSeconds(.15f);
     }
     void shoot()
     {
