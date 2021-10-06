@@ -7,8 +7,6 @@ public class sword : MonoBehaviour
     [SerializeField]
     private GameObject weapon;
     [SerializeField]
-    private GameObject bullet;
-    [SerializeField]
     private GameObject player;
     [SerializeField]
     private GameObject wall;
@@ -18,7 +16,6 @@ public class sword : MonoBehaviour
     void Start()
     {
         weapon.SetActive(false);
-        bullet.SetActive(false);
     }
 
     void Update()
@@ -38,12 +35,5 @@ public class sword : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         weapon.SetActive(false);
         coolDown = false;
-    }
-
-    void shoot()
-    {
-        Debug.Log("couroutine");
-        bullet.SetActive(true);
-        bullet.transform.position += Vector3.forward * Time.deltaTime;
     }
 }
