@@ -60,28 +60,31 @@ public class Player : MonoBehaviour
 
         //Vector3 characterScale = transform.localScale;
 
-        transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, 0f);
-        transform.Translate(0f, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
+        if(sword.activeSelf == false)
+        {
+            transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 0f, 0f);
+            transform.Translate(0f, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
 
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -270.0f);
-            frontOfPlayer.transform.localPosition = new Vector3(-0.8000007f, -0.01999986f, 0.0f);
-        }
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
-            frontOfPlayer.transform.localPosition = new Vector3(0.8000007f, -0.01999986f, 0.0f);
-        }
-        if (Input.GetAxis("Vertical") < 0)
-        {
-            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
-            frontOfPlayer.transform.localPosition = new Vector3(-0.01f, -0.79f, 0.0f);
-        }
-        if (Input.GetAxis("Vertical") > 0)
-        {
-            frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 360.0f);
-            frontOfPlayer.transform.localPosition = new Vector3(-0.01f, 0.79f, 0.0f);
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, -270.0f);
+                frontOfPlayer.transform.localPosition = new Vector3(-0.8000007f, -0.01999986f, 0.0f);
+            }
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 270.0f);
+                frontOfPlayer.transform.localPosition = new Vector3(0.8000007f, -0.01999986f, 0.0f);
+            }
+            if (Input.GetAxis("Vertical") < 0)
+            {
+                frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 180.0f);
+                frontOfPlayer.transform.localPosition = new Vector3(-0.01f, -0.79f, 0.0f);
+            }
+            if (Input.GetAxis("Vertical") > 0)
+            {
+                frontOfPlayer.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, 360.0f);
+                frontOfPlayer.transform.localPosition = new Vector3(-0.01f, 0.79f, 0.0f);
+            }
         }
     }
 

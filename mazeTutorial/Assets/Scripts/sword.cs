@@ -13,6 +13,8 @@ public class sword : MonoBehaviour
     [SerializeField]
     private GameObject wall;
 
+    bool coolDown = false;
+
     void Start()
     {
         weapon.SetActive(false);
@@ -21,25 +23,23 @@ public class sword : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && coolDown == false)
         {
             Debug.Log("pressed");
             StartCoroutine(attack());
-        }
-        if (Input.GetKey(KeyCode.X))
-        {
-            shoot();
         }
     }
 
     IEnumerator attack()
     {
+        coolDown = true;
         Debug.Log("couroutine");
         weapon.SetActive(true);
         yield return new WaitForSeconds(.3f);
         weapon.SetActive(false);
-        yield return new WaitForSeconds(.15f);
+        coolDown = false;
     }
+
     void shoot()
     {
         Debug.Log("couroutine");
