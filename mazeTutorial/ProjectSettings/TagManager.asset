@@ -9,6 +9,7 @@ TagManager:
   - princess
   - enemy
   - attack
+  - pickup
   layers:
   - Default
   - TransparentFX

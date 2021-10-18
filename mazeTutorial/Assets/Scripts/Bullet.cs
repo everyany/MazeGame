@@ -6,11 +6,25 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField]
     private GameObject bullet;
+    [SerializeField]
+    private GameObject player;
 
     [SerializeField]
     private GameObject bulletPrefab;
     [SerializeField]
     private Transform firePoint;
+    //
+    /*private GameObject metalObject;
+    private Transform center;
+    private Vector2 axis = Vector2.up;
+    private Vector2 desiredPosition;
+    [SerializeField] 
+    private float radius = 2.0f;
+    [SerializeField]
+    private float radiusSpeed = 0.5f;
+    [SerializeField]
+    private float rotationSpeed = 80.0f;*/
+    //
 
     bool coolDown = false;
 
@@ -33,6 +47,15 @@ public class Bullet : MonoBehaviour
             {
                 Debug.Log("hit " + hit.collider.name);
                 hit.transform.GetComponent<SpriteRenderer>().color = Color.red;
+
+                /*metalObject = hit.transform.gameObject;
+                center = metalObject.transform;
+                player.transform.position = (transform.position - center.position).normalized * radius + center.position;
+                radius = 2.0f;
+
+                transform.RotateAround(center.position, axis, rotationSpeed * Time.deltaTime);
+                desiredPosition = (transform.position - center.position).normalized * radius + center.position;
+                transform.position = Vector2.MoveTowards(transform.position, desiredPosition, Time.deltaTime * radiusSpeed);*/
             }
         }
         if (Input.GetKey(KeyCode.C) && coolDown == false)
@@ -41,7 +64,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    IEnumerator shoot()//raycaster for gadgets
+    /*IEnumerator shoot()//raycaster for gadgets
     {
         bullet.SetActive(true);
         yield return new WaitForSeconds(.01f);
@@ -51,7 +74,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("hit" + hit.collider.name);
         }
-    }
+    }*/
 
     IEnumerator projectile()
     {
